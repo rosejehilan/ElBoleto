@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ElBoleto.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
+
     public class TicketController : ControllerBase
     {
         // GET: TicketController
@@ -64,7 +63,7 @@ namespace ElBoleto.Controllers
         // GET: TicketController/Delete/5
         public ActionResult Delete(int id)
         {
-                return Ok(id);
+            return Ok(id);
         }
 
         // POST: TicketController/Delete/5
