@@ -9,6 +9,7 @@ namespace ElBoleto
         {
             this.passengerID = _passengerID;
             this.cardNumber = _cardNumber;
+            this.currentBalance = GetCurrentBalance();
         }
         public int passengerID { get; set; }
         public string ? firstName;

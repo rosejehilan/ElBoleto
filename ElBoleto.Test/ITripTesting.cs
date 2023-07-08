@@ -10,11 +10,12 @@ namespace ElBoleto.Test
     public class ITripTesting
     {
         //Arrange
-
+        ITrip mytrip = new Trip() { routeNumber = "12B", startingStation = "Thuckaly" };
 
         //Act
 
 
         //Assert
+        
     }
 }
