@@ -2,14 +2,14 @@
 {
     public class Bus
     {
-        public Bus(int _busID, string _routNumber)
+        public Bus(int _busID, string _routeNumber)
         {
             this.busID = _busID;
-            this.routNumber = _routNumber;
-            this.currentStage=getCurrentStage();
+            this.routeNumber = _routeNumber;
+            this.currentStage = getCurrentStage();
         }
         public int busID { get; set; }
-        public string routNumber { get; set; }
+        public string routeNumber { get; set; }
         public int tripID { get; set; }
         public int numberOfStages { get; set; }
         public int currentStage { get; set; }
