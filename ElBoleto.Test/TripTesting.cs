@@ -21,7 +21,7 @@ namespace ElBoleto.Test
             myTrip.tripStatus = 1;
             myTrip.endStage = 10;
             myTrip.startStage = 1;
-            myTrip.tripID = 5;
+            myTrip.tripId = 5;
             myTrip.passengerID = 6;
             myTrip.startingStation = "Nagercoil";
             myTrip.endStation = "Asaripallam";
@@ -35,7 +35,7 @@ namespace ElBoleto.Test
             Assert.Equal(1, myTrip.tripStatus);
             Assert.Equal(10, myTrip.endStage);
             Assert.Equal(1, myTrip.startStage);
-            Assert.Equal(5, myTrip.tripID);
+            Assert.Equal(5, myTrip.tripId);
             Assert.Equal(6, myTrip.passengerID);
             Assert.Equal("Nagercoil", myTrip.startingStation);
             Assert.Equal("Asaripallam", myTrip.endStation);

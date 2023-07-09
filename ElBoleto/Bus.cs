@@ -1,6 +1,6 @@
 ﻿namespace ElBoleto
 {
-    public class Bus
+    public class Bus:IBus
     {
         public Bus(int _busID, string _routeNumber)
         {
@@ -14,9 +14,10 @@
         public int numberOfStages { get; set; }
         public int currentStage { get; set; }
         public double farePerStage { get; set; }
-        public List<Passenger> passengers = new List<Passenger>();
-        public List<Ticket> tickets = new List<Ticket>();
-        private int getCurrentStage()
+        public int driverId { get; set; }
+        public int conductorID { get; set; }
+        public List<Ticket> tickets { get; set; }
+        public int getCurrentStage()
         {
             /*String CurrentLocation = CallGoogleMaps();
              this.currentStage = CalculateCurrentStage();*/
