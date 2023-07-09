@@ -2,16 +2,27 @@
 {
     public class Trip : ITrip
     {
-        public int tripID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int busID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string routeNumber { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int passengerID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int tripStatus { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime tripStart { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime tripEnd { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string startingStation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string ? endStation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int startStage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int endStage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int tripId { get; set; }
+        public int busID { get; set; }
+        public string ? routeNumber { get; set; }
+        public int passengerID { get; set; }
+        public int tripStatus { get; set; }
+        public DateTime tripStart { get; set; }
+        public DateTime tripEnd { get; set; }
+        public string ? startingStation { get; set; }
+        public string ? endStation { get; set; }
+        public int startStage { get; set; }
+        public int endStage { get; set; }
+        public void StartTrip()
+        {
+            this.startingStation = "Nagercoil"; // CallGoogleMaps();
+            this.tripStatus = (int)TripStatus.InProgress;
+        }
+
+        public void EndTrip()
+        {
+            this.endStation = "Kanyakumari"; // CallGoogleMaps();
+            this.tripStatus = (int)TripStatus.Completed;
+        }
     }
 }

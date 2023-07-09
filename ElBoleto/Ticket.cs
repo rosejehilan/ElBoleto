@@ -4,53 +4,56 @@ namespace ElBoleto
 {
     public enum TripStatus
     {
-        InProgresss,
+        InProgress,
         Completed
     }
+
+
     public class Ticket : ITrip
     {
-        public Ticket(string _cardId, string _routNumber, string _startingStation)
+        private readonly IBus bus;
+        private readonly IPassenger passenger;
+
+        public Ticket(string _cardId, string _routeNumber, IBus bus, IPassenger _passenger)
         {
             this.cardId = _cardId;
-            this.routeNumber = _routNumber;
-            this.startingStation = _startingStation;
-
+            this.routeNumber = _routeNumber;
+            this.bus = bus;
+            this.passenger = _passenger;
         }
-        public int TicketId { get; set; }
-        public int passengerID { get; set; }
-        public string cardId { get; set; }
+        public  string cardId { get; set; }
+        public int ticketId { get; set; }
         public int numberOfStages { get; set; }
-        public double fare { get; set; }
-        public int tripID { get; set; }
-        public int busID { get; set; }
-        public string routeNumber { get; set; }
+        public double Fare { get; set; }
+        public int tripId { get; set; }
         public int tripStatus { get; set; }
         public DateTime tripStart { get; set; }
         public DateTime tripEnd { get; set; }
-        public string startingStation { get; set; }
-        public string ? endStation { get; set; }
+        public string? endStation { get; set; }
         public int startStage { get; set; }
         public int endStage { get; set; }
+        public int busID { get; set; }
+        public string routeNumber { get; set; }
+        public int passengerID { get; set; }
+        public string ? startingStation { get; set; }
+        
 
         public void StartTrip()
         {
-            Bus myBus = new Bus(this.busID, this.routeNumber);
-            this.startStage = myBus.currentStage;
-            this.startingStation = "Nagercoil"; //CallGoogleMaps();
-            this.tripStatus = (int)TripStatus.InProgresss;
-
+            this.startStage = bus.currentStage;
+            this.startingStation = "Nagercoil"; // CallGoogleMaps();
+            this.tripStatus =(int)TripStatus.InProgress ;
         }
+
         public void EndTrip()
         {
-            Bus myBus = new Bus(this.busID, this.routeNumber);
-            Passenger myPassenger = new Passenger(passengerID, cardId);
-            this.endStation = "Kanyakumari"; //CallGoogleMaps();
-            this.endStage = myBus.currentStage;
-            this.numberOfStages = endStage - startStage;
-            this.fare = myBus.farePerStage * this.numberOfStages;
+            this.endStation = "Kanyakumari"; // CallGoogleMaps();
+            this.endStage = bus.currentStage;
+            this.numberOfStages = this.endStage - this.startStage;
+            this.Fare = bus.farePerStage * this.numberOfStages;
             this.tripStatus = (int)TripStatus.Completed;
-            myPassenger.currentBalance = myPassenger.currentBalance - this.fare;
+            //Need to update the passenger balance
+           // this.passenger.currentBalance -= this.Fare; 
         }
     }
 }
-
